@@ -198,26 +198,6 @@ public class LoginForm extends javax.swing.JFrame {
                         new ManagerHome(dtoEmployee).setVisible(true);
                         this.setVisible(false);
                     }
-                    else if(busUserLogin.getRole(dtoUserLogin).equals("Cashier")){
-                        Employee_DTO dtoEmployee = busUserLogin.getEmployeeInfo(dtoUserLogin);
-                        new CashierHome(dtoEmployee).setVisible(true);
-                        this.setVisible(false);
-                    }
-                    else if(busUserLogin.getRole(dtoUserLogin).equals("Storekeeper")){
-                        Employee_DTO dtoEmployee = busUserLogin.getEmployeeInfo(dtoUserLogin);
-                        new StorekeeperHome(dtoEmployee).setVisible(true);
-                        this.setVisible(false);
-                    }
-                    else if(busUserLogin.getRole(dtoUserLogin).equals("Salesperson")){
-                        Employee_DTO dtoEmployee = busUserLogin.getEmployeeInfo(dtoUserLogin);
-                        new SalespersonHome(dtoEmployee).setVisible(true);
-                        this.setVisible(false);
-                    }
-                    else if(busUserLogin.getRole(dtoUserLogin).equals("Customer Service Assistant")){
-                        Employee_DTO dtoEmployee = busUserLogin.getEmployeeInfo(dtoUserLogin);
-                        new CustomerServiceAssistantHome(dtoEmployee).setVisible(true);
-                        this.setVisible(false);
-                    }
                     else{
                         JOptionPane.showMessageDialog(this, "Username or password is incorrect",  "Error", JOptionPane.ERROR_MESSAGE);
                     }
