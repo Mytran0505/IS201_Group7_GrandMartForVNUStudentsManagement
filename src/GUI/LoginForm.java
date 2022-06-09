@@ -47,7 +47,7 @@ public class LoginForm extends javax.swing.JFrame {
         Head2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Head2.setForeground(new java.awt.Color(255, 255, 255));
         Head2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Head2.setText("GRANDMART FOR VNUHCM'S STUDENT SYSTEM");
+        Head2.setText("MINIMART FOR VNUHCM'S STUDENT SYSTEM");
 
         javax.swing.GroupLayout PanelHeadLayout = new javax.swing.GroupLayout(PanelHead);
         PanelHead.setLayout(PanelHeadLayout);
@@ -57,7 +57,7 @@ public class LoginForm extends javax.swing.JFrame {
                 .addComponent(Head1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Head2, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         PanelHeadLayout.setVerticalGroup(
             PanelHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,8 +196,31 @@ public class LoginForm extends javax.swing.JFrame {
                     if(busUserLogin.getRole(dtoUserLogin).equals("Manager")){
                         Employee_DTO dtoEmployee = busUserLogin.getEmployeeInfo(dtoUserLogin);
                         new ManagerHome(dtoEmployee).setVisible(true);
+                        this.setVisible(false);
                     }
-                    this.setVisible(false);
+                    else if(busUserLogin.getRole(dtoUserLogin).equals("Cashier")){
+                        Employee_DTO dtoEmployee = busUserLogin.getEmployeeInfo(dtoUserLogin);
+                        new CashierHome(dtoEmployee).setVisible(true);
+                        this.setVisible(false);
+                    }
+                    else if(busUserLogin.getRole(dtoUserLogin).equals("Storekeeper")){
+                        Employee_DTO dtoEmployee = busUserLogin.getEmployeeInfo(dtoUserLogin);
+                        new StorekeeperHome(dtoEmployee).setVisible(true);
+                        this.setVisible(false);
+                    }
+                    else if(busUserLogin.getRole(dtoUserLogin).equals("Salesperson")){
+                        Employee_DTO dtoEmployee = busUserLogin.getEmployeeInfo(dtoUserLogin);
+                        new SalespersonHome(dtoEmployee).setVisible(true);
+                        this.setVisible(false);
+                    }
+                    else if(busUserLogin.getRole(dtoUserLogin).equals("Customer Service Assistant")){
+                        Employee_DTO dtoEmployee = busUserLogin.getEmployeeInfo(dtoUserLogin);
+                        new CustomerServiceAssistantHome(dtoEmployee).setVisible(true);
+                        this.setVisible(false);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "Username or password is incorrect",  "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Username or password is incorrect",  "Error", JOptionPane.ERROR_MESSAGE);
